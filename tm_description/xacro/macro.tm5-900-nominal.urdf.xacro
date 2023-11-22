@@ -290,6 +290,38 @@
     <child link="${prefix}tool0" />
     <origin rpy="0.000000 0.000000 0.000000" xyz="0.000000 0.000000 0.000000" />
   </joint>
+
+      <link name="${prefix}realsense_fixture">
+      <visual>
+        <geometry>
+          <mesh filename="package://tm_description/meshes/tm5-900/visual/realsense_fixture.${format}" />
+        </geometry>
+        <material name="${color}" />
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://tm_description/meshes/tm5-900/collision/TM_Realsense_Rviz_Collision_meter.stl" />
+        </geometry>
+      </collision>
+    </link>
+
+
+    <joint name="${prefix}flange_link-realsense" type="fixed">
+      <parent link="${prefix}flange_link" />
+      <child link="${prefix}realsense_fixture" />
+      <origin rpy="-0.0 0.0 -3.14" xyz="0.031 0.12422165 0.05114026" />
+      <!-- <origin rpy="-0.0403348 0.01678710 -3.1261744" xyz="0.031 0.12422165 0.05114026" /> -->
+    </joint>
+
+    <link name="${prefix}camera_link"/>
+
+    <joint name="${prefix}realsense_optical_camera_center" type="fixed">
+      <parent link="${prefix}realsense_fixture" />
+      <child link="${prefix}camera_link" />
+      <origin rpy="-0.0   -1.57    1.57" xyz="0.0148 0.0001 0.0002" />
+    </joint>
+
+
 <!--LinkDescription-->
 
   </xacro:macro>
