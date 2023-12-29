@@ -388,7 +388,6 @@
       <child link="${prefix}flange_link" />
       <origin rpy="0.000000 0.000000 0.000000" xyz="0.000000 0.000000 0.000000" />
     </joint>
-
     <link name="${prefix}flange_link" />
 
     <link name="${prefix}base" />
@@ -398,38 +397,12 @@
       <origin rpy="0.000000 0.000000 0.000000" xyz="0.000000 0.000000 0.000000" />
     </joint>
 
-    <link name="${prefix}tool0" >
-      <!-- <visual>
-        <origin xyz="0 0 0.155" rpy="0 0 0" />
-      <geometry>
-       	<cylinder radius="0.01" length="0.31"/>
-      </geometry>
-      <material name="white">
-        <color rgba="0.3 1 1 1"/>
-      </material>
-      </visual>
-      <collision>
-        <origin xyz="0 0 0.19" rpy="0 0 0"/>
-        <geometry>
-          <cylinder radius="0.03" length="0.24"/>
-        </geometry>
-      </collision> -->
-    </link>
-
-
+    <link name="${prefix}tool0"/>
     <joint name="${prefix}flange_link-tool0" type="fixed">
       <parent link="${prefix}flange_link" />
       <child link="${prefix}tool0" />
       <origin rpy="0.000000 0.000000 0.000000" xyz="0.000000 0.000000 0.000000" />
     </joint>
-
-    <!-- <link name="${prefix}gripper" />
-    <joint name="${prefix}tool0-gripper" type="fixed">
-      <parent link="${prefix}tool0" />
-      <child link="${prefix}gripper" />
-      <origin rpy="0.000000 0.000000 0.000000" xyz="0.000000 0.000000 0.31" />
-    </joint> -->
-
 
     <link name="${prefix}realsense_fixture">
       <visual>
@@ -445,16 +418,13 @@
       </collision>
     </link>
 
-
     <joint name="${prefix}flange_link-realsense" type="fixed">
       <parent link="${prefix}flange_link" />
       <child link="${prefix}realsense_fixture" />
       <origin rpy="-0.0 0.0 -3.14" xyz="0.031 0.12422165 0.05114026" />
-      <!-- <origin rpy="-0.0403348 0.01678710 -3.1261744" xyz="0.031 0.12422165 0.05114026" /> -->
     </joint>
 
     <link name="${prefix}camera_link"/>
-
     <joint name="${prefix}realsense_optical_camera_center" type="fixed">
       <parent link="${prefix}realsense_fixture" />
       <child link="${prefix}camera_link" />

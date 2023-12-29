@@ -14,22 +14,24 @@
   <!--  - if sim=false, a robot_ip argument is required -->
   <arg name="sim" default="false" />
 
-  <!-- <arg name="robot_ip" value="192.168.50.98" /> -->
-  <arg name="robot_ip" value="10.42.0.149" /> 
+  <arg name="robot_ip" value="192.168.50.98" />
+  <!-- <arg name="robot_ip" value="10.42.0.149" />  -->
     
   <!-- load the robot_description parameter before launching ROS-I nodes -->
+
   <include file="$(find tm5-900-moveit_config)/launch/planning_context.launch" >
     <arg name="load_robot_description" value="true" />
   </include>
 
   <!-- run the robot simulator and action interface nodes -->
-  <group if="$(arg sim)">
+  <!-- <group if="$(arg sim)">
     <include file="$(find industrial_robot_simulator)/launch/robot_interface_simulator.launch" />
-  </group>
+  </group> -->
 
   <!-- run the "real robot" interface nodes -->
   <!--   - this typically includes: robot_state, motion_interface, and joint_trajectory_action nodes -->
   <!--   - replace these calls with appropriate robot-specific calls or launch files -->
+  
   <group unless="$(arg sim)">
     <include file="$(find tm_driver)/launch/tm5-900-moveit_bringup.launch" >
       <arg name="robot_ip" value="$(arg robot_ip)"/>

@@ -8,7 +8,8 @@
   <!-- Load universal robot description format (URDF) -->
   <param if="$(arg load_robot_description)" name="$(arg robot_description)" command="xacro  '$(find tm_description)/xacro/tm5-900-614.urdf.xacro'"/>
   <!-- <param if="$(arg load_robot_description)" name="$(arg robot_description)" command="xacro  '$(find tm_description)/xacro/macro.tm5-900-nominal.urdf.xacro'"/> -->
-
+  <!-- <param if="$(arg load_robot_description)" name="$(arg robot_description)" command="xacro  '$(find tm_description)/xacro/tm5-900.urdf.xacro'"/> -->
+  
   <!-- The semantic description that corresponds to the URDF -->
   <param name="$(arg robot_description)_semantic" textfile="$(find tm5-900-moveit_config)/config/tm5-900.srdf" />
 
